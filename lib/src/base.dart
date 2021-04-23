@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:mustache_template/mustache.dart';
 import 'package:shelf/shelf.dart';
 
-String _mustacheWithPartial(String content, dynamic values, {String? includePath}) {
+String _mustacheString(String content, dynamic values, {String? includePath}) {
   var template = Template(content, partialResolver: (path) {
     if (includePath == null) {
       throw ArgumentError('The parameter \'includePath\' is required when using mustache include syntax.');
@@ -22,7 +22,7 @@ Middleware mustache(dynamic values, {String? includePath}) {
     return (Request request) async {
       var response = await innerHandler(request);
       var body = await response.readAsString();
-      var mustachedBody = _mustacheWithPartial(body, values, includePath: includePath);
+      var mustachedBody = _mustacheString(body, values, includePath: includePath);
       return response.change(body: mustachedBody);
     };
   };
