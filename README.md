@@ -42,13 +42,13 @@ void main() async {
       '/path/',
       shelf.Pipeline()
           .addMiddleware(
-              // mustache model gets evaluated on each request
-              mustache(() => {'title': 'My page'},
-                  // (optional:) configure include path
-                  includePath: 'example/public',
-                  // (optional:) decide processing based on a predicate
-                  predicate: (req, res) =>
-                      req.headers['content-type'] == 'text/html'))
+        // mustache model gets evaluated on each request
+          mustache(() => {'title': 'My page'},
+              // (optional:) configure include path
+              includePath: 'example/public',
+              // (optional:) decide processing based on a predicate
+              predicate: (request, response) =>
+              response.headers['content-type'] == 'text/html'))
           .addHandler(createStaticHandler('example/public')));
 
   await io.serve(router, 'localhost', 8080);

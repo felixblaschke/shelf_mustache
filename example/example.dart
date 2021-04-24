@@ -32,8 +32,8 @@ void main() async {
                   // (optional:) configure include path
                   includePath: 'example/public',
                   // (optional:) decide processing based on a predicate
-                  predicate: (req, res) =>
-                      req.headers['content-type'] == 'text/html'))
+                  predicate: (request, response) =>
+                      response.headers['content-type'] == 'text/html'))
           .addHandler(createStaticHandler('example/public')));
 
   await io.serve(router, 'localhost', 8080);
