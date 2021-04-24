@@ -1,18 +1,3 @@
-Mustache template rendering integration for shelf
-
-## Usage
-
-You can either use the `String` extension:
-
-```dart
-var result = 'hello {{ name }}!'.mustache({'name': name});
-```
-
-Or use the `mustache()` middleware for shelf. 
-
-For more detail, look at example:
-
-```dart
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_mustache/shelf_mustache.dart';
@@ -53,4 +38,3 @@ void main() async {
 
   await io.serve(router, 'localhost', 8080);
 }
-```
