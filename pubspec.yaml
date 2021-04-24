@@ -1,6 +1,6 @@
 name: shelf_mustache
 description: Mustache template rendering integration for shelf
-version: 0.0.1
+version: 0.0.1+1
 repository: https://github.com/felixblaschke/shelf_mustache
 
 environment:

@@ -2,13 +2,13 @@ Mustache template rendering integration for shelf
 
 ## Usage
 
-You can either use the `String` extension:
+You can either use the `String` extension within request handlers:
 
 ```dart
-var result = 'hello {{ name }}!'.mustache({'name': name});
+var result = 'hello {{ name }}!'.mustache({'name': 'john'});
 ```
 
-Or use the `mustache()` middleware for shelf. 
+Or use the `mustache()` middleware to post-process responses automatically. 
 
 For more detail, look at example:
 
